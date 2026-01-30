@@ -110,7 +110,7 @@ def generate_event():
             if event_type == "purchase"
             else None
         ),
-        "event_timestamp": datetime.now(timezone.utc).isoformat()
+        "event_timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     }
 
 
