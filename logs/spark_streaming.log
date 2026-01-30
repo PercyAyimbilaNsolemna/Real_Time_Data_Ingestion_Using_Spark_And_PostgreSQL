@@ -1,0 +1,74 @@
+2026-01-30 13:19:49,645 - INFO - Starting Spark streaming job
+2026-01-30 13:19:54,871 - INFO - Reading streaming CSV files
+2026-01-30 13:19:56,664 - INFO - Configuring bad records sink
+2026-01-30 13:19:56,681 - INFO - Callback Server Starting
+2026-01-30 13:19:56,682 - INFO - Socket listening on ('127.0.0.1', 44793)
+2026-01-30 13:19:57,093 - INFO - Configuring Postgres sink
+2026-01-30 13:19:57,332 - INFO - Streaming started successfully
+2026-01-30 13:20:15,351 - INFO - Python Server ready to receive messages
+2026-01-30 13:20:15,353 - INFO - Python Server ready to receive messages
+2026-01-30 13:20:15,353 - INFO - Received command c on object id p0
+2026-01-30 13:20:15,354 - INFO - Received command c on object id p1
+2026-01-30 13:20:16,025 - INFO - Batch 0: No invalid records
+2026-01-30 13:20:16,547 - INFO - Batch 0: Writing 20 records to Postgres
+2026-01-30 13:20:17,130 - INFO - Received command c on object id p0
+2026-01-30 13:20:17,242 - INFO - Batch 1: No invalid records
+2026-01-30 13:20:19,120 - INFO - Batch 0: Write completed
+2026-01-30 13:20:20,002 - INFO - Received command c on object id p0
+2026-01-30 13:20:20,146 - INFO - Batch 2: No invalid records
+2026-01-30 13:20:20,217 - INFO - Received command c on object id p1
+2026-01-30 13:20:20,523 - INFO - Batch 1: Writing 40 records to Postgres
+2026-01-30 13:20:21,130 - INFO - Batch 1: Write completed
+2026-01-30 13:20:22,845 - INFO - Received command c on object id p0
+2026-01-30 13:20:22,874 - INFO - Received command c on object id p1
+2026-01-30 13:20:22,967 - INFO - Batch 3: No invalid records
+2026-01-30 13:20:23,160 - INFO - Batch 2: Writing 20 records to Postgres
+2026-01-30 13:20:23,504 - INFO - Batch 2: Write completed
+2026-01-30 13:20:28,294 - INFO - Received command c on object id p0
+2026-01-30 13:20:28,316 - INFO - Received command c on object id p1
+2026-01-30 13:20:28,383 - INFO - Batch 4: No invalid records
+2026-01-30 13:20:28,542 - INFO - Batch 3: Writing 20 records to Postgres
+2026-01-30 13:20:28,803 - INFO - Batch 3: Write completed
+2026-01-30 13:20:31,232 - INFO - Received command c on object id p0
+2026-01-30 13:20:31,298 - INFO - Received command c on object id p1
+2026-01-30 13:20:31,444 - INFO - Batch 5: No invalid records
+2026-01-30 13:20:31,602 - INFO - Batch 4: Writing 20 records to Postgres
+2026-01-30 13:20:31,870 - INFO - Batch 4: Write completed
+2026-01-30 13:20:34,301 - INFO - Received command c on object id p0
+2026-01-30 13:20:34,358 - INFO - Batch 6: No invalid records
+2026-01-30 13:20:34,361 - INFO - Received command c on object id p1
+2026-01-30 13:20:34,673 - INFO - Batch 5: Writing 20 records to Postgres
+2026-01-30 13:20:34,852 - INFO - Batch 5: Write completed
+2026-01-30 13:20:37,288 - INFO - Received command c on object id p0
+2026-01-30 13:20:37,315 - INFO - Received command c on object id p1
+2026-01-30 13:20:37,374 - INFO - Batch 7: No invalid records
+2026-01-30 13:20:37,535 - INFO - Batch 6: Writing 20 records to Postgres
+2026-01-30 13:20:37,721 - INFO - Batch 6: Write completed
+2026-01-30 13:20:40,343 - INFO - Received command c on object id p0
+2026-01-30 13:20:40,347 - INFO - Received command c on object id p1
+2026-01-30 13:20:40,412 - INFO - Batch 8: No invalid records
+2026-01-30 13:20:40,512 - INFO - Batch 7: Writing 20 records to Postgres
+2026-01-30 13:20:40,726 - INFO - Batch 7: Write completed
+2026-01-30 13:20:43,416 - INFO - Received command c on object id p1
+2026-01-30 13:20:43,481 - INFO - Received command c on object id p0
+2026-01-30 13:20:43,583 - INFO - Batch 9: No invalid records
+2026-01-30 13:20:43,663 - INFO - Batch 8: Writing 20 records to Postgres
+2026-01-30 13:20:43,973 - INFO - Batch 8: Write completed
+2026-01-30 13:20:46,385 - INFO - Received command c on object id p0
+2026-01-30 13:20:46,466 - INFO - Batch 10: No invalid records
+2026-01-30 13:20:46,612 - INFO - Received command c on object id p1
+2026-01-30 13:20:46,795 - INFO - Batch 9: Writing 20 records to Postgres
+2026-01-30 13:20:46,963 - INFO - Batch 9: Write completed
+2026-01-30 13:20:49,312 - INFO - Received command c on object id p0
+2026-01-30 13:20:49,345 - INFO - Received command c on object id p1
+2026-01-30 13:20:49,382 - INFO - Batch 11: No invalid records
+2026-01-30 13:20:49,517 - INFO - Batch 10: Writing 20 records to Postgres
+2026-01-30 13:20:49,671 - INFO - Batch 10: Write completed
+2026-01-30 13:20:52,372 - INFO - Received command c on object id p0
+2026-01-30 13:20:52,411 - INFO - Received command c on object id p1
+2026-01-30 13:20:52,421 - INFO - Batch 12: No invalid records
+2026-01-30 13:20:52,670 - INFO - Batch 11: Writing 20 records to Postgres
+2026-01-30 13:20:52,862 - INFO - Batch 11: Write completed
+2026-01-30 13:21:05,842 - INFO - Stopping streaming queries...
+2026-01-30 13:21:05,926 - INFO - Stopping Spark session...
+2026-01-30 13:21:06,161 - INFO - Spark shutdown completed cleanly
