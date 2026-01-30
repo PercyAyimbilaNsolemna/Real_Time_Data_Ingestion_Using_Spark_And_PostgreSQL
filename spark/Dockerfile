@@ -7,6 +7,11 @@ RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
+# Download PostgreSQL JDBC driver
+RUN wget https://jdbc.postgresql.org/download/postgresql-42.7.3.jar \
+    -P /opt/spark/jars/
+
+
 # Make python default
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
