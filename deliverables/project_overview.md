@@ -511,7 +511,7 @@ Check out the [Installation Guide](docs/INSTALLATION.md) and [Configuration Docu
 
 **Percy Ayimbila Nsolemna**
 
-*Data Engineer | Streaming Architecture Specialist*
+*Machine Learning Engineer | Data Engineer*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PercyAyimbilaNsolemna)
@@ -529,7 +529,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **If this project helped you understand streaming data engineering, give it a star!**
 
-[![Star](https://img.shields.io/github/stars/yourusername/spark-postgres-streaming?style=social)](https://github.com/yourusername/spark-postgres-streaming)
+[![Star](https://img.shields.io/github/stars/PercyAyimbilaNsolemna/spark-postgres-streaming?style=social)](https://github.com/PercyAyimbilaNsolemna/spark-postgres-streaming)
 
 ---
 
