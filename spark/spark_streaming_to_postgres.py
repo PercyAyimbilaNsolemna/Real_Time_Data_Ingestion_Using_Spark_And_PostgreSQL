@@ -5,7 +5,8 @@ import signal
 import time
 
 from pyspark.sql import SparkSession, DataFrame
-from pyspark.sql.functions import col, when
+from pyspark.sql.functions import col, when, to_timestamp
+from pyspark.sql.types import DecimalType
 from pyspark.sql.functions import current_timestamp
 
 from schema import get_event_schema
@@ -145,6 +146,23 @@ def process_stream():
         .schema(get_event_schema())
         .load(input_dir)
     )
+
+    
+    # ---------------------------------------------------------------
+    # Explicit type casting
+    # ---------------------------------------------------------------
+    typed_df = (
+        stream_df
+        .withColumn("event_id", col("event_id"))
+        .withColumn("user_id", col("user_id").cast("int"))
+        .withColumn("product_id", col("product_id").cast("int"))
+        .withColumn("price", col("price").cast(DecimalType(10, 2)))
+        .withColumn(
+            "event_timestamp",
+            to_timestamp(col("event_timestamp"))
+        )
+    )
+
     
 
     # ---------------------------------------------------------------
