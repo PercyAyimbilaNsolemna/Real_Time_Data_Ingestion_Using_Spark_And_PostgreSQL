@@ -163,13 +163,19 @@ def process_stream():
         )
     )
 
+
+    # ---------------------------------------------------------------
+    # Removing deduplication
+    # ---------------------------------------------------------------
+    deduped_df = typed_df.dropDuplicates(["event_id"])
+
     
 
     # ---------------------------------------------------------------
     # Validation rules
     # ---------------------------------------------------------------
     validated_df = (
-        stream_df
+        deduped_df
         .withColumn(
             "is_valid",
             when(
