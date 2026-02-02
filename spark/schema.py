@@ -4,6 +4,7 @@ from pyspark.sql.types import (
     StringType,
     IntegerType,
     DoubleType,
+    TimestampType,
 )
 
 # ============================================================
@@ -17,5 +18,5 @@ def get_event_schema() -> StructType:
         StructField("product_id", IntegerType(), True),
         StructField("event_type", StringType(), True),
         StructField("price", DoubleType(), True),
-        StructField("event_timestamp", StringType(), True),
+         StructField("event_timestamp", TimestampType(), True),
     ])
