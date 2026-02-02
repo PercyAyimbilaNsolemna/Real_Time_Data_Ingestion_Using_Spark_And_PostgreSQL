@@ -32,7 +32,7 @@ DATA_DIR = "/opt/spark/data/incoming"
 LOG_DIR = "/opt/spark/logs"
 
 # Number of events per CSV file
-BATCH_SIZE = 20
+BATCH_SIZE = 500
 
 # Seconds to wait before generating the next batch
 SLEEP_SECONDS = 3
