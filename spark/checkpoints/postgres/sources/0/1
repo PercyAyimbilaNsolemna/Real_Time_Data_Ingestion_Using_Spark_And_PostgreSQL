@@ -1,10 +1,6 @@
 v1
-{"path":"file:///opt/spark/data/incoming/events_batch_0002.csv","timestamp":1770055764708,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0003.csv","timestamp":1770055767933,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0004.csv","timestamp":1770055771131,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0005.csv","timestamp":1770055774356,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0006.csv","timestamp":1770055777624,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0007.csv","timestamp":1770055781140,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0008.csv","timestamp":1770055784415,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0009.csv","timestamp":1770055787659,"batchId":1}
-{"path":"file:///opt/spark/data/incoming/events_batch_0010.csv","timestamp":1770055790887,"batchId":1}
+{"path":"file:///opt/spark/data/incoming/events_batch_0002.csv","timestamp":1770153272006,"batchId":1}
+{"path":"file:///opt/spark/data/incoming/events_batch_0003.csv","timestamp":1770153275063,"batchId":1}
+{"path":"file:///opt/spark/data/incoming/events_batch_0004.csv","timestamp":1770153278140,"batchId":1}
+{"path":"file:///opt/spark/data/incoming/events_batch_0005.csv","timestamp":1770153281251,"batchId":1}
+{"path":"file:///opt/spark/data/incoming/events_batch_0006.csv","timestamp":1770153284357,"batchId":1}
