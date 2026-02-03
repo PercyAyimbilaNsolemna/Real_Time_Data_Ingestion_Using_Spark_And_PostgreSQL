@@ -1,22 +1,25 @@
-2026-02-02 18:08:16,659 - INFO - Starting Spark streaming job
-2026-02-02 18:08:25,575 - INFO - Reading streaming CSV files
-2026-02-02 18:08:31,113 - INFO - Configuring bad records sink
-2026-02-02 18:08:31,314 - INFO - Callback Server Starting
-2026-02-02 18:08:31,323 - INFO - Socket listening on ('127.0.0.1', 33857)
-2026-02-02 18:08:32,767 - INFO - Configuring Postgres sink
-2026-02-02 18:08:33,372 - INFO - Streaming started successfully
-2026-02-02 18:09:26,628 - INFO - Python Server ready to receive messages
-2026-02-02 18:09:26,630 - INFO - Received command c on object id p0
-2026-02-02 18:09:26,631 - INFO - Python Server ready to receive messages
-2026-02-02 18:09:26,634 - INFO - Received command c on object id p1
-2026-02-02 18:10:13,189 - INFO - Batch 0: Writing 500 records to Postgres
-2026-02-02 18:10:56,993 - INFO - Batch 0: Write completed
-2026-02-02 18:11:02,775 - INFO - Received command c on object id p1
-2026-02-02 18:11:08,404 - INFO - Batch 0: No invalid records
-2026-02-02 18:11:16,304 - INFO - Received command c on object id p0
-2026-02-02 18:11:41,688 - INFO - Batch 1: Writing 4500 records to Postgres
-2026-02-02 18:12:23,312 - INFO - Batch 1: Write completed
-2026-02-02 18:12:56,160 - INFO - Batch 1: No invalid records
-2026-02-02 18:13:05,807 - INFO - Stopping streaming queries...
-2026-02-02 18:13:06,067 - INFO - Stopping Spark session...
-2026-02-02 18:13:06,430 - INFO - Spark shutdown completed cleanly
+2026-02-03 21:14:01,703 - INFO - Starting Spark streaming job
+2026-02-03 21:14:06,120 - INFO - Initializing Postgres connection pool
+2026-02-03 21:14:06,144 - INFO - Connection pool initialized
+2026-02-03 21:14:06,156 - INFO - Reading streaming CSV files
+2026-02-03 21:14:08,871 - INFO - Configuring bad records sink
+2026-02-03 21:14:08,897 - INFO - Callback Server Starting
+2026-02-03 21:14:08,898 - INFO - Socket listening on ('127.0.0.1', 33565)
+2026-02-03 21:14:09,484 - INFO - Configuring Postgres sink
+2026-02-03 21:14:09,766 - INFO - Streaming started successfully
+2026-02-03 21:14:32,118 - INFO - Python Server ready to receive messages
+2026-02-03 21:14:32,118 - INFO - Received command c on object id p0
+2026-02-03 21:14:32,124 - INFO - Python Server ready to receive messages
+2026-02-03 21:14:32,124 - INFO - Received command c on object id p1
+2026-02-03 21:15:02,624 - INFO - Batch 0: Writing 500 records to Postgres
+2026-02-03 21:15:39,824 - INFO - Batch 0: Write completed
+2026-02-03 21:15:45,844 - INFO - Received command c on object id p1
+2026-02-03 21:15:49,111 - INFO - Batch 0: No invalid records
+2026-02-03 21:15:53,504 - INFO - Received command c on object id p0
+2026-02-03 21:16:09,973 - INFO - Batch 1: Writing 2500 records to Postgres
+2026-02-03 21:16:36,421 - INFO - Batch 1: Write completed
+2026-02-03 21:16:57,446 - INFO - Batch 1: No invalid records
+2026-02-03 21:18:06,540 - INFO - Stopping streaming queries...
+2026-02-03 21:18:06,611 - INFO - Closing connection pool
+2026-02-03 21:18:06,612 - INFO - Stopping Spark session...
+2026-02-03 21:18:06,833 - INFO - Spark shutdown completed cleanly

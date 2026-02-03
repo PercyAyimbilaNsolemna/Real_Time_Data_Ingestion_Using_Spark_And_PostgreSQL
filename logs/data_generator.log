@@ -1,13 +1,9 @@
-2026-02-02 18:09:21,658 | INFO | data_generator | Data generator started
-2026-02-02 18:09:21,684 | INFO | data_generator | Generated events_batch_0001.csv with 500 events
-2026-02-02 18:09:24,714 | INFO | data_generator | Generated events_batch_0002.csv with 500 events
-2026-02-02 18:09:27,787 | INFO | data_generator | Generated events_batch_0003.csv with 500 events
-2026-02-02 18:09:30,832 | INFO | data_generator | Generated events_batch_0004.csv with 500 events
-2026-02-02 18:09:33,912 | INFO | data_generator | Generated events_batch_0005.csv with 500 events
-2026-02-02 18:09:37,047 | INFO | data_generator | Generated events_batch_0006.csv with 500 events
-2026-02-02 18:09:41,907 | INFO | data_generator | Generated events_batch_0007.csv with 500 events
-2026-02-02 18:09:45,001 | INFO | data_generator | Generated events_batch_0008.csv with 500 events
-2026-02-02 18:09:48,094 | INFO | data_generator | Generated events_batch_0009.csv with 500 events
-2026-02-02 18:09:51,170 | INFO | data_generator | Generated events_batch_0010.csv with 500 events
-2026-02-02 18:09:52,893 | INFO | data_generator | Shutdown signal received. Stopping data generator gracefully.
-2026-02-02 18:09:54,173 | INFO | data_generator | Data generator stopped cleanly
+2026-02-03 21:14:29,012 | INFO | data_generator | Data generator started
+2026-02-03 21:14:29,028 | INFO | data_generator | Generated events_batch_0001.csv with 500 events
+2026-02-03 21:14:32,062 | INFO | data_generator | Generated events_batch_0002.csv with 500 events
+2026-02-03 21:14:35,118 | INFO | data_generator | Generated events_batch_0003.csv with 500 events
+2026-02-03 21:14:38,212 | INFO | data_generator | Generated events_batch_0004.csv with 500 events
+2026-02-03 21:14:41,280 | INFO | data_generator | Generated events_batch_0005.csv with 500 events
+2026-02-03 21:14:44,412 | INFO | data_generator | Shutdown signal received. Stopping data generator gracefully.
+2026-02-03 21:14:44,421 | INFO | data_generator | Generated events_batch_0006.csv with 500 events
+2026-02-03 21:14:47,431 | INFO | data_generator | Data generator stopped cleanly
