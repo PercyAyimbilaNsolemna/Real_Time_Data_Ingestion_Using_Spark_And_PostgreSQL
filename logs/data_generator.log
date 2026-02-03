@@ -1,16 +1,13 @@
-2026-01-30 13:20:13,255 | INFO | data_generator | Data generator started
-2026-01-30 13:20:13,259 | INFO | data_generator | Generated events_batch_0001.csv with 20 events
-2026-01-30 13:20:16,264 | INFO | data_generator | Generated events_batch_0002.csv with 20 events
-2026-01-30 13:20:19,271 | INFO | data_generator | Generated events_batch_0003.csv with 20 events
-2026-01-30 13:20:22,278 | INFO | data_generator | Generated events_batch_0004.csv with 20 events
-2026-01-30 13:20:27,694 | INFO | data_generator | Generated events_batch_0005.csv with 20 events
-2026-01-30 13:20:30,700 | INFO | data_generator | Generated events_batch_0006.csv with 20 events
-2026-01-30 13:20:33,705 | INFO | data_generator | Generated events_batch_0007.csv with 20 events
-2026-01-30 13:20:36,711 | INFO | data_generator | Generated events_batch_0008.csv with 20 events
-2026-01-30 13:20:39,719 | INFO | data_generator | Generated events_batch_0009.csv with 20 events
-2026-01-30 13:20:42,724 | INFO | data_generator | Generated events_batch_0010.csv with 20 events
-2026-01-30 13:20:45,728 | INFO | data_generator | Generated events_batch_0011.csv with 20 events
-2026-01-30 13:20:48,733 | INFO | data_generator | Generated events_batch_0012.csv with 20 events
-2026-01-30 13:20:51,737 | INFO | data_generator | Generated events_batch_0013.csv with 20 events
-2026-01-30 13:20:51,802 | INFO | data_generator | Shutdown signal received. Stopping data generator gracefully.
-2026-01-30 13:20:54,738 | INFO | data_generator | Data generator stopped cleanly
+2026-02-02 18:09:21,658 | INFO | data_generator | Data generator started
+2026-02-02 18:09:21,684 | INFO | data_generator | Generated events_batch_0001.csv with 500 events
+2026-02-02 18:09:24,714 | INFO | data_generator | Generated events_batch_0002.csv with 500 events
+2026-02-02 18:09:27,787 | INFO | data_generator | Generated events_batch_0003.csv with 500 events
+2026-02-02 18:09:30,832 | INFO | data_generator | Generated events_batch_0004.csv with 500 events
+2026-02-02 18:09:33,912 | INFO | data_generator | Generated events_batch_0005.csv with 500 events
+2026-02-02 18:09:37,047 | INFO | data_generator | Generated events_batch_0006.csv with 500 events
+2026-02-02 18:09:41,907 | INFO | data_generator | Generated events_batch_0007.csv with 500 events
+2026-02-02 18:09:45,001 | INFO | data_generator | Generated events_batch_0008.csv with 500 events
+2026-02-02 18:09:48,094 | INFO | data_generator | Generated events_batch_0009.csv with 500 events
+2026-02-02 18:09:51,170 | INFO | data_generator | Generated events_batch_0010.csv with 500 events
+2026-02-02 18:09:52,893 | INFO | data_generator | Shutdown signal received. Stopping data generator gracefully.
+2026-02-02 18:09:54,173 | INFO | data_generator | Data generator stopped cleanly
