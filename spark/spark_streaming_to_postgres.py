@@ -9,6 +9,11 @@ from pyspark.sql.functions import col, when, to_timestamp
 from pyspark.sql.types import DecimalType
 from pyspark.sql.functions import current_timestamp
 
+import psycopg2
+from psycopg2.extras import execute_values
+from psycopg2 import pool
+from contextlib import contextmanager
+
 from schema import get_event_schema
 
 
@@ -37,7 +42,7 @@ def shutdown_handler(signum, frame):
 
     """
     global running
-    logger.info("Shutdown signal received. Stopping data generator gracefully.")
+    logger.info("Shutdown signal received. Stopping spark streaming job gracefully.")
     running = False
 
 
@@ -59,32 +64,142 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+# ============================================================
+# CREATE TABLE ON START UP
+# ============================================================
+
+def ensure_schema_exists():
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS public.ecommerce_events (
+            event_id UUID PRIMARY KEY,
+            user_id INT NOT NULL,
+            product_id INT NOT NULL,
+            event_type VARCHAR(20) NOT NULL CHECK (event_type IN ('view', 'purchase')),
+            price NUMERIC(10,2),
+            event_timestamp TIMESTAMP NOT NULL,
+            ingestion_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+        """)
+        cursor.close()
+
+
+
+# ============================================================
+# CONNECTION POOL (Initialize once globally)
+# ============================================================
+connection_pool = None
+
+def initialize_connection_pool():
+    """Initialize connection pool once at startup."""
+    global connection_pool
+    if connection_pool is None:
+        logger.info("Initializing Postgres connection pool")
+        connection_pool = pool.ThreadedConnectionPool(
+            minconn=1,
+            maxconn=10,  # Adjust based on your workload
+            host=POSTGRES_HOST,
+            database=POSTGRES_DB,
+            user=POSTGRES_USER,
+            password=POSTGRES_PASSWORD,
+            port=POSTGRES_PORT
+        )
+        logger.info("Connection pool initialized")
+
+@contextmanager
+def get_db_connection():
+    """Context manager to get connection from pool."""
+    conn = connection_pool.getconn()
+    try:
+        yield conn
+        conn.commit()
+    except Exception as e:
+        conn.rollback()
+        logger.error(f"Database error: {e}")
+        raise
+    finally:
+        connection_pool.putconn(conn)
+
+
+# -------------------------------------------------------------------
+# Postgres Partition write function
+# -------------------------------------------------------------------
+def write_partition_to_postgres(rows):
+    rows = list(rows)
+    if not rows:
+        return
+
+    conn = psycopg2.connect(
+        host=POSTGRES_HOST,
+        port=POSTGRES_PORT,
+        dbname=POSTGRES_DB,
+        user=POSTGRES_USER,
+        password=POSTGRES_PASSWORD
+    )
+    cursor = conn.cursor()
+
+    insert_sql = """
+        INSERT INTO ecommerce_events (
+            event_id,
+            user_id,
+            product_id,
+            event_type,
+            price,
+            event_timestamp,
+            ingestion_timestamp
+        )
+        VALUES %s
+        ON CONFLICT (event_id)
+        DO UPDATE SET
+            user_id = EXCLUDED.user_id,
+            product_id = EXCLUDED.product_id,
+            event_type = EXCLUDED.event_type,
+            price = EXCLUDED.price,
+            event_timestamp = EXCLUDED.event_timestamp,
+            ingestion_timestamp = EXCLUDED.ingestion_timestamp
+    """
+
+    values = [
+        (
+            r.event_id,
+            r.user_id,
+            r.product_id,
+            r.event_type,
+            r.price,
+            r.event_timestamp,
+            r.ingestion_timestamp
+        )
+        for r in rows
+    ]
+
+    execute_values(cursor, insert_sql, values, page_size=200)
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
 # -------------------------------------------------------------------
 # Postgres write function
 # -------------------------------------------------------------------
 def write_batch_to_postgres(batch_df: DataFrame, batch_id: int):
     """
-    Writes a micro-batch to Postgres.
+    Writes a micro-batch to Postgres using connection pool.
     """
     if batch_df.isEmpty():
         logger.info(f"Batch {batch_id}: No valid records to write")
         return
-
+    
     logger.info(f"Batch {batch_id}: Writing {batch_df.count()} records to Postgres")
-
+    
     (
-        batch_df.write
-        .format("jdbc")
-        .option("url", f"jdbc:postgresql://{POSTGRES_HOST}/{POSTGRES_DB}")
-        .option("dbtable", "ecommerce_events")
-        .option("user", POSTGRES_USER)
-        .option("password", POSTGRES_PASSWORD)
-        .option("driver", "org.postgresql.Driver")
-        .mode("append")
-        .save()
+        batch_df
+        .repartition(4)   # tune this
+        .foreachPartition(write_partition_to_postgres)
     )
-
+    
     logger.info(f"Batch {batch_id}: Write completed")
+
 
 
 # -------------------------------------------------------------------
@@ -129,6 +244,11 @@ def process_stream():
         .getOrCreate()
     )
 
+    # Initialize connection pool ONCE
+    initialize_connection_pool()
+
+    ensure_schema_exists()
+
     spark.sparkContext.setLogLevel("WARN")
 
     input_dir = "/opt/spark/data/incoming"
@@ -142,7 +262,6 @@ def process_stream():
         spark.readStream
         .format("csv")
         .option("header", "true")
-        .option("badRecordsPath", bad_records_dir)
         .schema(get_event_schema())
         .load(input_dir)
     )
@@ -237,6 +356,10 @@ def process_stream():
         for query in spark.streams.active:
             query.stop()
 
+        # Close connection pool on shutdown
+        if connection_pool:
+            logger.info("Closing connection pool")
+            connection_pool.closeall()
         logger.info("Stopping Spark session...")
         spark.stop()
         logger.info("Spark shutdown completed cleanly")
