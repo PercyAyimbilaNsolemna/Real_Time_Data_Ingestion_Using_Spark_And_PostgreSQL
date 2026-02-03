@@ -11,6 +11,7 @@ RUN apt-get update && \
 RUN wget https://jdbc.postgresql.org/download/postgresql-42.7.3.jar \
     -P /opt/spark/jars/
 
+RUN  pip install psycopg2-binary
 
 # Make python default
 RUN ln -s /usr/bin/python3 /usr/bin/python
